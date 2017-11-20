@@ -1,10 +1,13 @@
 package a000webhostapp.sayoor.sayoormain;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -96,4 +99,30 @@ private static final String REGISTER_URL="https://sayoor.000webhostapp.com/UserR
         RegisterUser ur=new RegisterUser();
         ur.execute(urlSuffix);
     }
+
+
+
+    @Override
+    public boolean onKeyDown(int keyCode,KeyEvent event){
+
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            AlertDialog.Builder alertbox=new AlertDialog.Builder(Signup.this);
+            alertbox.setTitle("Enough Sayoor For The Day?");
+            alertbox.setCancelable(false);
+            alertbox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            alertbox.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            alertbox.show();
+        }
+        return super.onKeyDown(keyCode,event);
+    }
+
 }
