@@ -38,6 +38,7 @@ public class Login extends AppCompatActivity {
     private boolean loggedIn=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         editTextEmail=(EditText)findViewById(R.id.editText_email);
@@ -97,12 +98,32 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        /**
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         loggedIn = sharedPreferences.getBoolean(LOGGEDIN_SHARED_PREF, false);
-        if(loggedIn){
-            Intent intent = new Intent(Login.this, MainActivity.class);
-            startActivity(intent);
+
+        if (loggedIn) {
+            AlertDialog.Builder alertbox=new AlertDialog.Builder(Login.this);
+            alertbox.setTitle("Resume Last Login??");
+            alertbox.setCancelable(false);
+            alertbox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+            alertbox.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    loggedIn=false;
+                }
+            });
+            alertbox.show();
         }
+        **/
+
     }
 
 
