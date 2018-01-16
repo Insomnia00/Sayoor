@@ -47,7 +47,12 @@ public class Login extends AppCompatActivity {
         BtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+                if (GeneralTools.isNetworkConnected(getApplicationContext()) ){
+                    login();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Not Connected to the Internet", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -1,8 +1,11 @@
 package a000webhostapp.sayoor.sayoormain;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -63,7 +66,7 @@ private static final String REGISTER_URL="https://sayoor.000webhostapp.com/UserR
     String urlSuffix = "?username=" + username + "&password=" + password + "&email=" + email;
         class RegisterUser extends AsyncTask<String, Void, String> {
 
-            ProgressDialog loading;
+            private ProgressDialog loading;
 
             @Override
             protected void onPreExecute() {
@@ -75,7 +78,11 @@ private static final String REGISTER_URL="https://sayoor.000webhostapp.com/UserR
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(getApplicationContext(),"Registered", Toast.LENGTH_SHORT).show();
+                if (GeneralTools.isNetworkConnected(getApplicationContext())) {
+                    Toast.makeText(getApplicationContext(), "Registered", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Not Connected to the Internet", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -99,6 +106,9 @@ private static final String REGISTER_URL="https://sayoor.000webhostapp.com/UserR
         RegisterUser ur=new RegisterUser();
         ur.execute(urlSuffix);
     }
+
+
+
 
 
 
