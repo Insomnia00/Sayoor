@@ -19,7 +19,7 @@ public class Splash_Screen extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    Intent obj = new Intent(Splash_Screen.this, Signup.class);
+                    Intent obj = new Intent(Splash_Screen.this, Login.class);
                     startActivity(obj);
                 }
             }

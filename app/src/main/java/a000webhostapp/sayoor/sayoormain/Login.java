@@ -35,6 +35,7 @@ public class Login extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button BtnLogin;
+    private Button BtnSignup;
     private boolean loggedIn=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,20 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+        BtnSignup = (Button) findViewById(R.id.btn_redirect_signup);
+        BtnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (GeneralTools.isNetworkConnected(getApplicationContext()) ){
+                    Intent intent = new Intent(Login.this, Signup.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Not Connected to the Internet", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     private void login() {

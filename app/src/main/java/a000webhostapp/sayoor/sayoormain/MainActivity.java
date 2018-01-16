@@ -19,30 +19,6 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
     }
-    @Override
-    public boolean onKeyDown(int keyCode,KeyEvent event){
-        if (keyCode==KeyEvent.KEYCODE_BACK){
-            AlertDialog.Builder alertbox=new AlertDialog.Builder(MainActivity.this);
-            alertbox.setTitle("Enough Sayoor For The Day??");
-            alertbox.setCancelable(false);
-            alertbox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                    //moveTaskToBack(true);
-                    //android.os.Process.killProcess(android.os.Process.myPid());
-                    //System.exit(1);
-                }
-            });
-            alertbox.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-            alertbox.show();
-        }
-        return super.onKeyDown(keyCode,event);
-    }
 
 
     // For Option Menu

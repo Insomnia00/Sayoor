@@ -44,17 +44,20 @@
         android:id="@+id/btn_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/btn_login"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/id_pass"
-        android:layout_marginTop="41dp"
-        android:text="Signup" />
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="24dp"
+        android:text="Confirm" />
 
     <Button
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/btn_login"
-        android:layout_below="@+id/btn_signup"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="102dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/btn_signup"
+        android:text="Login" />
 
 </RelativeLayout>
