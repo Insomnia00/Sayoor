@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -33,12 +34,13 @@ public class MainActivity extends AppCompatActivity{
         int id=item.getItemId();
         if(id==R.id.id_profile){
             // Write own logic
-
+            Toast.makeText(getApplicationContext(), "Selected Profile", Toast.LENGTH_SHORT).show();
             return true;
         }
         if (id==R.id.id_set){
 
             //Write own logic
+            Toast.makeText(getApplicationContext(), "Selected id set?", Toast.LENGTH_SHORT).show();
             return true;
         }
         return  true;

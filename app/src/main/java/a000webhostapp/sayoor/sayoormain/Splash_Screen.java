@@ -19,7 +19,8 @@ public class Splash_Screen extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    Intent obj = new Intent(Splash_Screen.this, Login.class);
+                    //deem to change
+                    Intent obj = new Intent(Splash_Screen.this, Main3Activity.class);
                     startActivity(obj);
                 }
             }
