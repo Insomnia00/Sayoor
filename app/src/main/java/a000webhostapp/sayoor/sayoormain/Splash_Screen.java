@@ -20,7 +20,7 @@ public class Splash_Screen extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                     //deem to change
-                    Intent obj = new Intent(Splash_Screen.this, Main3Activity.class);
+                    Intent obj = new Intent(Splash_Screen.this, HomeActivity.class);
                     startActivity(obj);
                 }
             }
