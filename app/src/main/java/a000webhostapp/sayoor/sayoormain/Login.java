@@ -91,7 +91,7 @@ public class Login extends AppCompatActivity {
 
                             editor.commit();
 
-                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            Intent intent = new Intent(Login.this, Main3Activity.class);
                             startActivity(intent);
                         }else{
                             Toast.makeText(Login.this, "Invalid username or password", Toast.LENGTH_LONG).show();
@@ -115,6 +115,12 @@ public class Login extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
+
+    /**
+     * The following commented out lines can be used as a cache to resume login from previous
+     * login. Further implementation may be needed.
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -130,7 +136,7 @@ public class Login extends AppCompatActivity {
             alertbox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    Intent intent = new Intent(Login.this, Main3Activity.class);
                     startActivity(intent);
                 }
             });

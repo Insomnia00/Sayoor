@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/main" />
-        <activity
             android:name=".Splash_Screen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
@@ -26,10 +23,6 @@
         </activity>
         <activity android:name=".Signup" />
         <activity android:name=".Login" />
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main3Activity"
             android:label="@string/title_activity_main3"></activity>
