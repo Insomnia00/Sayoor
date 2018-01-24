@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sayoor</string>
+    <string name="app_name">SAYOOR</string>
     <string name="main">Home</string>
     <string name="profile_label">Profile</string>
     <string name="title_activity_main2">Main2Activity</string>
@@ -10,7 +10,7 @@
     <string name="action_settings">Settings</string>
     //Special ?
     <string name="title_activity_main3">Shop</string>
-    <string name="title_activity_home">Shop</string>
+    <string name="title_activity_home">Sayoor</string>
 
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

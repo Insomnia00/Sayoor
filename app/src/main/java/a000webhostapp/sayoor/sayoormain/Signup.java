@@ -67,7 +67,7 @@ private static final String REGISTER_URL="https://sayoor.000webhostapp.com/UserR
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(Signup.this, "Please Wait", null, true, true);
+                loading = ProgressDialog.show(Signup.this, "Please Wait", null, true, false);
             }
 
             @Override
@@ -108,27 +108,6 @@ private static final String REGISTER_URL="https://sayoor.000webhostapp.com/UserR
 
 
 
-    @Override
-    public boolean onKeyDown(int keyCode,KeyEvent event){
 
-        if (keyCode==KeyEvent.KEYCODE_BACK){
-            AlertDialog.Builder alertbox=new AlertDialog.Builder(Signup.this);
-            alertbox.setTitle("Enough Sayoor For The Day?");
-            alertbox.setCancelable(false);
-            alertbox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                }
-            });
-            alertbox.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-            alertbox.show();
-        }
-        return super.onKeyDown(keyCode,event);
-    }
 
 }

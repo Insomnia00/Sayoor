@@ -1,7 +1,10 @@
 package a000webhostapp.sayoor.sayoormain;
 
+import android.app.FragmentManager;
 import android.app.SearchManager;
-import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,8 +18,10 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class HomeActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener, BlankFragment2.OnFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements ShopFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener,
+        CartFragment.OnFragmentInteractionListener, AccountFragment.OnFragmentInteractionListener {
 
     private TextView mTextMessage;
     private ActionBar toolbar;
@@ -29,21 +34,20 @@ public class HomeActivity extends AppCompatActivity implements BlankFragment.OnF
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    toolbar.setTitle("Shop");
-                    fragment = new BlankFragment();
+                    fragment = new ShopFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_cart:
-                    toolbar.setTitle("Cart");
-
+                    fragment = new CartFragment();
+                    loadFragment(fragment);
                     return true;
                 case R.id.navigation_settings:
-                    toolbar.setTitle("Settings");
-                    fragment = new BlankFragment2();
+                    fragment = new SettingsFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_account:
-                    toolbar.setTitle("Account");
+                    fragment = new AccountFragment();
+                    loadFragment(fragment);
                     return true;
 
             }
@@ -55,8 +59,27 @@ public class HomeActivity extends AppCompatActivity implements BlankFragment.OnF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        //Have to set it like that otherwise bottom nav doesnt work
         toolbar = getSupportActionBar();
+        toolbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        toolbar.setCustomView(R.layout.abs_layout);
 
+/**
+        TypedArray array = getTheme().obtainStyledAttributes(new int[] {
+                android.R.attr.colorBackground,
+                android.R.attr.textColorPrimary,
+        });
+        int backgroundColor = array.getColor(0, 0xFF00FF);
+        int textColor = array.getColor(1, 0xFF00FF);
+        array.recycle();
+        Toast toast = Toast.makeText(getApplicationContext(), Integer.toString(backgroundColor), Toast.LENGTH_LONG);
+        toast.show();
+
+**/
+
+        //default color for background
+        toolbar.setBackgroundDrawable(new ColorDrawable(-1118482));
+        toolbar.setElevation(0);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

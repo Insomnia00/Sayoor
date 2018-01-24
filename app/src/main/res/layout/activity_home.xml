@@ -22,12 +22,13 @@
 
     <fragment
         android:id="@+id/fragment3"
-        android:name="a000webhostapp.sayoor.sayoormain.BlankFragment"
+        android:name="a000webhostapp.sayoor.sayoormain.ShopFragment"
         android:layout_width="match_parent"
         android:layout_height="456dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_shop" />
 
 
 </android.support.constraint.ConstraintLayout>
